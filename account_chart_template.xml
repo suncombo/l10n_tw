@@ -1,0 +1,4381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+<!--
+
+    Copyright (C) 2015-now Mick Tseng
+
+會計科目表模板
+-->
+    <data noupdate="True">
+
+		<record id="tw_root" model="account.account.template">
+		    <field name="code">0</field>
+		    <field name="type">view</field>
+		    <field name="name">根科目</field>
+		    <field name="user_type" ref="user_type_all"/>
+		</record>
+        <record id="chart1000" model="account.account.template">
+		    <field name="code">1000</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="tw_root" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1100" model="account.account.template">
+		    <field name="code">1100</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">流動資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1110" model="account.account.template">
+		    <field name="code">1110</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">現金及約當現金</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1111" model="account.account.template">
+		    <field name="code">1111</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1110" name="parent_id"/>
+		    <field name="type">liquidity</field>
+		    <field name="name">庫存現金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1112" model="account.account.template">
+		    <field name="code">1112</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1110" name="parent_id"/>
+		    <field name="type">liquidity</field>
+		    <field name="name">零用金／週轉金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1113" model="account.account.template">
+		    <field name="code">1113</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1110" name="parent_id"/>
+		    <field name="type">liquidity</field>
+		    <field name="name">銀行存款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1114" model="account.account.template">
+		    <field name="code">1114</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1110" name="parent_id"/>
+		    <field name="type">liquidity</field>
+		    <field name="name">定期存款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1115" model="account.account.template">
+		    <field name="code">1115</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1110" name="parent_id"/>
+		    <field name="type">liquidity</field>
+		    <field name="name">可轉讓定存單</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1116" model="account.account.template">
+		    <field name="code">1116</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1110" name="parent_id"/>
+		    <field name="type">liquidity</field>
+		    <field name="name">在途現金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1117" model="account.account.template">
+		    <field name="code">1117</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1110" name="parent_id"/>
+		    <field name="type">liquidity</field>
+		    <field name="name">約當現金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1118" model="account.account.template">
+		    <field name="code">1118</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1110" name="parent_id"/>
+		    <field name="type">liquidity</field>
+		    <field name="name">其他現金及約當現金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1120" model="account.account.template">
+		    <field name="code">1120</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">短期投資</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1121" model="account.account.template">
+		    <field name="code">1121</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1120" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">公平價值變動列入損益之金融資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1122" model="account.account.template">
+		    <field name="code">1122</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1120" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">備供出售金融資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1123" model="account.account.template">
+		    <field name="code">1123</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1120" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">持有至到期日金融資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1129" model="account.account.template">
+		    <field name="code">1129</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1120" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">金融資產評價調整</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1130" model="account.account.template">
+		    <field name="code">1130</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">應收票據</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1131" model="account.account.template">
+		    <field name="code">1131</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1130" name="parent_id"/>
+		    <field name="type">receivable</field>
+		    <field name="name">應收票據</field>
+		    <field name="user_type" ref="user_type_receivable"/>
+		</record>
+		<record id="chart1132" model="account.account.template">
+		    <field name="code">1132</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1130" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應收票據貼現</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1137" model="account.account.template">
+		    <field name="code">1137</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1130" name="parent_id"/>
+		    <field name="type">receivable</field>
+		    <field name="name">應收票據－關係人</field>
+		    <field name="user_type" ref="user_type_receivable"/>
+		</record>
+		<record id="chart1138" model="account.account.template">
+		    <field name="code">1138</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1130" name="parent_id"/>
+		    <field name="type">receivable</field>
+		    <field name="name">其他應收票據</field>
+		    <field name="user_type" ref="user_type_receivable"/>
+		</record>
+		<record id="chart1139" model="account.account.template">
+		    <field name="code">1139</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1130" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">備抵呆帳－應收票據</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1140" model="account.account.template">
+		    <field name="code">1140</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">應收帳款</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1141" model="account.account.template">
+		    <field name="code">1141</field>
+		    <field name="reconcile" eval="True"/>
+		    <field ref="chart1140" name="parent_id"/>
+		    <field name="type">receivable</field>
+		    <field name="name">應收帳款</field>
+		    <field name="user_type" ref="user_type_receivable"/>
+		</record>
+		<record id="chart1142" model="account.account.template">
+		    <field name="code">1142</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1140" name="parent_id"/>
+		    <field name="type">receivable</field>
+		    <field name="name">應收分期帳款</field>
+		    <field name="user_type" ref="user_type_receivable"/>
+		</record>
+		<record id="chart1147" model="account.account.template">
+		    <field name="code">1147</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1140" name="parent_id"/>
+		    <field name="type">receivable</field>
+		    <field name="name">應收帳款－關係人</field>
+		    <field name="user_type" ref="user_type_receivable"/>
+		</record>
+		<record id="chart1149" model="account.account.template">
+		    <field name="code">1149</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1140" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">備抵呆帳－應收帳款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1150" model="account.account.template">
+		    <field name="code">1150</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">避險性金融資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1151" model="account.account.template">
+		    <field name="code">1151</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">避險之衍生性金融資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1156" model="account.account.template">
+		    <field name="code">1156</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">避險之衍生性金融資產評價調整</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1180" model="account.account.template">
+		    <field name="code">1180</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他應收帳款</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1184" model="account.account.template">
+		    <field name="code">1184</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應收收益</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1185" model="account.account.template">
+		    <field name="code">1185</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應收退稅款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1187" model="account.account.template">
+		    <field name="code">1187</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他應收款－關係人</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1188" model="account.account.template">
+		    <field name="code">1188</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他應收款－其他</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1189" model="account.account.template">
+		    <field name="code">1189</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">備抵呆帳－其他應收款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1200" model="account.account.template">
+		    <field name="code">1200</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">流動資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1210" model="account.account.template">
+		    <field name="code">1210</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">存貨</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1211" model="account.account.template">
+		    <field name="code">1211</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">商品存貨</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1212" model="account.account.template">
+		    <field name="code">1212</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">寄銷商品</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1213" model="account.account.template">
+		    <field name="code">1213</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">在途商品</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1219" model="account.account.template">
+		    <field name="code">1219</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">備抵存貨跌價損失</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1221" model="account.account.template">
+		    <field name="code">1221</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">製成品</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1222" model="account.account.template">
+		    <field name="code">1222</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">寄銷製成品</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1223" model="account.account.template">
+		    <field name="code">1223</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">副產品</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1224" model="account.account.template">
+		    <field name="code">1224</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">在製品</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1225" model="account.account.template">
+		    <field name="code">1225</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">委外加工</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1226" model="account.account.template">
+		    <field name="code">1226</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">原料</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1227" model="account.account.template">
+		    <field name="code">1227</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">物料</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1228" model="account.account.template">
+		    <field name="code">1228</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">在途原物料</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1229" model="account.account.template">
+		    <field name="code">1229</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">備抵存貨跌價損失</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1250" model="account.account.template">
+		    <field name="code">1250</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">預付費用</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1251" model="account.account.template">
+		    <field name="code">1251</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預付薪資</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1252" model="account.account.template">
+		    <field name="code">1252</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預付租金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1253" model="account.account.template">
+		    <field name="code">1253</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預付保險費</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1254" model="account.account.template">
+		    <field name="code">1254</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">用品盤存</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1255" model="account.account.template">
+		    <field name="code">1255</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預付所得稅</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1258" model="account.account.template">
+		    <field name="code">1258</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他預付費用</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1260" model="account.account.template">
+		    <field name="code">1260</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">預付款項</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1261" model="account.account.template">
+		    <field name="code">1261</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1260" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預付貨款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1268" model="account.account.template">
+		    <field name="code">1268</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1260" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他預付款項</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1280" model="account.account.template">
+		    <field name="code">1280</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他流動資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1281" model="account.account.template">
+		    <field name="code">1281</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">進項稅額</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1282" model="account.account.template">
+		    <field name="code">1282</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">留抵稅額</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1283" model="account.account.template">
+		    <field name="code">1283</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">暫付款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1284" model="account.account.template">
+		    <field name="code">1284</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">代付款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1285" model="account.account.template">
+		    <field name="code">1285</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">員工借支</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1286" model="account.account.template">
+		    <field name="code">1286</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">存出保證金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1287" model="account.account.template">
+		    <field name="code">1287</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">受限制存款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1291" model="account.account.template">
+		    <field name="code">1291</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">遞延所得稅資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1292" model="account.account.template">
+		    <field name="code">1292</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">遞延兌換損失</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1293" model="account.account.template">
+		    <field name="code">1293</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">業主(股東)往來</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1294" model="account.account.template">
+		    <field name="code">1294</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">同業往來</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1298" model="account.account.template">
+		    <field name="code">1298</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他流動資產－其他</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1300" model="account.account.template">
+		    <field name="code">1300</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">基金及長期投資</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1310" model="account.account.template">
+		    <field name="code">1310</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">基金</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1311" model="account.account.template">
+		    <field name="code">1311</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1310" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">償債基金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1312" model="account.account.template">
+		    <field name="code">1312</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1310" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">改良及擴充基金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1313" model="account.account.template">
+		    <field name="code">1313</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1310" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">意外損失準備基金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1314" model="account.account.template">
+		    <field name="code">1314</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1310" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">退休基金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1318" model="account.account.template">
+		    <field name="code">1318</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1310" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他基金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1320" model="account.account.template">
+		    <field name="code">1320</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">長期投資</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1321" model="account.account.template">
+		    <field name="code">1321</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">公平價值變動列入損益之金融資產－非流動</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1322" model="account.account.template">
+		    <field name="code">1322</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">備供出售金融資產－非流動</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1323" model="account.account.template">
+		    <field name="code">1323</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">持有至到期日金融資產－非流動</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1325" model="account.account.template">
+		    <field name="code">1325</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">以成本衡量之金融資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1329" model="account.account.template">
+		    <field name="code">1329</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">金融資產評價調整</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1331" model="account.account.template">
+		    <field name="code">1331</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">採權益法之長期股權投資</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1341" model="account.account.template">
+		    <field name="code">1341</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期不動產投資</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1345" model="account.account.template">
+		    <field name="code">1345</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">人壽保險現金解約價值</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1349" model="account.account.template">
+		    <field name="code">1349</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他長期投資</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1400" model="account.account.template">
+		    <field name="code">1400</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">固定資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1410" model="account.account.template">
+		    <field name="code">1410</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">土地</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1411" model="account.account.template">
+		    <field name="code">1411</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1410" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">土地</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1417" model="account.account.template">
+		    <field name="code">1417</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1410" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">土地－重估增值</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1419" model="account.account.template">
+		    <field name="code">1419</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1410" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損-土地</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1420" model="account.account.template">
+		    <field name="code">1420</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">土地改良物</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1421" model="account.account.template">
+		    <field name="code">1421</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1420" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">土地改良物</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1427" model="account.account.template">
+		    <field name="code">1427</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1420" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">土地改良物－重估增值</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1428" model="account.account.template">
+		    <field name="code">1428</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1420" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計折舊－土地改良物</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1429" model="account.account.template">
+		    <field name="code">1429</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1420" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損-土地改良物</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1430" model="account.account.template">
+		    <field name="code">1430</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">房屋及建築</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1431" model="account.account.template">
+		    <field name="code">1431</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1430" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">房屋及建築</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1437" model="account.account.template">
+		    <field name="code">1437</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1430" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">房屋及建築－重估增值</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1438" model="account.account.template">
+		    <field name="code">1438</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1430" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計折舊－房屋及建築</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1439" model="account.account.template">
+		    <field name="code">1439</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1430" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損-房屋及建築</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1440" model="account.account.template">
+		    <field name="code">1440</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">機(器)具及設備</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1441" model="account.account.template">
+		    <field name="code">1441</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1440" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">機(器)具</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1447" model="account.account.template">
+		    <field name="code">1447</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1440" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">機(器)具－重估增值</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1448" model="account.account.template">
+		    <field name="code">1448</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1440" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計折舊－機(器)具</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1449" model="account.account.template">
+		    <field name="code">1449</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1440" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－機(器)具</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1510" model="account.account.template">
+		    <field name="code">1510</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">租賃資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1511" model="account.account.template">
+		    <field name="code">1511</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1510" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">租賃資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1518" model="account.account.template">
+		    <field name="code">1518</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1510" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計折舊－租賃資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1519" model="account.account.template">
+		    <field name="code">1519</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1510" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－租賃資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1520" model="account.account.template">
+		    <field name="code">1520</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">租賃權益改良</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1521" model="account.account.template">
+		    <field name="code">1521</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1520" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">租賃權益改良</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1528" model="account.account.template">
+		    <field name="code">1528</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1520" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計折舊－租賃權益改良</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1529" model="account.account.template">
+		    <field name="code">1529</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1520" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－租賃權益改良</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1560" model="account.account.template">
+		    <field name="code">1560</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">未完工程及預付購置設備款</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1561" model="account.account.template">
+		    <field name="code">1561</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1560" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">未完工程</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1562" model="account.account.template">
+		    <field name="code">1562</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1560" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預付購置設備款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1569" model="account.account.template">
+		    <field name="code">1569</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1560" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－未完工程</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1580" model="account.account.template">
+		    <field name="code">1580</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">雜項固定資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1581" model="account.account.template">
+		    <field name="code">1581</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1580" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">雜項固定資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1587" model="account.account.template">
+		    <field name="code">1587</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1580" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">雜項固定資產－重估增值</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1588" model="account.account.template">
+		    <field name="code">1588</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1580" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計折舊－雜項固定資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1589" model="account.account.template">
+		    <field name="code">1589</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1580" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－雜項固定資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1600" model="account.account.template">
+		    <field name="code">1600</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">遞耗資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1610" model="account.account.template">
+		    <field name="code">1610</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1600" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">遞耗資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1611" model="account.account.template">
+		    <field name="code">1611</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1610" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">天然資源</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1617" model="account.account.template">
+		    <field name="code">1617</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1610" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">天然資源－重估增值</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1618" model="account.account.template">
+		    <field name="code">1618</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1610" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計折耗－天然資源</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1619" model="account.account.template">
+		    <field name="code">1619</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1610" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－天然資源</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1700" model="account.account.template">
+		    <field name="code">1700</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">無形資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1710" model="account.account.template">
+		    <field name="code">1710</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1700" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">商標權</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1717" model="account.account.template">
+		    <field name="code">1717</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1710" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">商標權－重估增值</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1719" model="account.account.template">
+		    <field name="code">1719</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1710" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－商標權</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1720" model="account.account.template">
+		    <field name="code">1720</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1700" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">專利權</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1721" model="account.account.template">
+		    <field name="code">1721</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1720" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">專利權</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1727" model="account.account.template">
+		    <field name="code">1727</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1720" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">專利權－重估增值</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1729" model="account.account.template">
+		    <field name="code">1729</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1720" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－專利權</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1730" model="account.account.template">
+		    <field name="code">1730</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1700" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">特許權</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1731" model="account.account.template">
+		    <field name="code">1731</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1730" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">特許權</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1739" model="account.account.template">
+		    <field name="code">1739</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1730" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－特許權</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1740" model="account.account.template">
+		    <field name="code">1740</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1700" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">著作權</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1741" model="account.account.template">
+		    <field name="code">1741</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1740" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">著作權</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1749" model="account.account.template">
+		    <field name="code">1749</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1740" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－著作權</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1750" model="account.account.template">
+		    <field name="code">1750</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1700" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">電腦軟體</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1751" model="account.account.template">
+		    <field name="code">1751</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1750" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">電腦軟體</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1758" model="account.account.template">
+		    <field name="code">1758</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1750" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計攤銷-電腦軟體</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1759" model="account.account.template">
+		    <field name="code">1759</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1750" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－電腦軟體</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1760" model="account.account.template">
+		    <field name="code">1760</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1700" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">商譽</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1761" model="account.account.template">
+		    <field name="code">1761</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1760" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">商譽</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1769" model="account.account.template">
+		    <field name="code">1769</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1760" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損－商譽</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1780" model="account.account.template">
+		    <field name="code">1780</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1700" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他無形資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1781" model="account.account.template">
+		    <field name="code">1781</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1780" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">遞延退休金成本</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1782" model="account.account.template">
+		    <field name="code">1782</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1780" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">租賃權益改良</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1788" model="account.account.template">
+		    <field name="code">1788</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1780" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他無形資產－其他</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1789" model="account.account.template">
+		    <field name="code">1789</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1780" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累計減損-其他</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1800" model="account.account.template">
+		    <field name="code">1800</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1810" model="account.account.template">
+		    <field name="code">1810</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">遞延資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1811" model="account.account.template">
+		    <field name="code">1811</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1810" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">債券發行成本</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1812" model="account.account.template">
+		    <field name="code">1812</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1810" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期預付租金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1813" model="account.account.template">
+		    <field name="code">1813</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1810" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期預付保險費</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1814" model="account.account.template">
+		    <field name="code">1814</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1810" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">遞延所得稅資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1815" model="account.account.template">
+		    <field name="code">1815</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1810" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預付退休金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1818" model="account.account.template">
+		    <field name="code">1818</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1810" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他遞延資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1820" model="account.account.template">
+		    <field name="code">1820</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">閒置資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1821" model="account.account.template">
+		    <field name="code">1821</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1820" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">閒置資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1840" model="account.account.template">
+		    <field name="code">1840</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">長期應收票據及款項</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1841" model="account.account.template">
+		    <field name="code">1841</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1840" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期應收票據</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1842" model="account.account.template">
+		    <field name="code">1842</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1840" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期應收帳款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1843" model="account.account.template">
+		    <field name="code">1843</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1840" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">催收帳款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1847" model="account.account.template">
+		    <field name="code">1847</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1840" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期應收票據及款項與催收帳款－關係人</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1848" model="account.account.template">
+		    <field name="code">1848</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1840" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他長期應收款項</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1849" model="account.account.template">
+		    <field name="code">1849</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1840" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">備抵呆帳-長期應收票據及款項與催收帳款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1850" model="account.account.template">
+		    <field name="code">1850</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">出租資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1851" model="account.account.template">
+		    <field name="code">1851</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1850" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">出租資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1859" model="account.account.template">
+		    <field name="code">1859</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1850" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累積折舊－出租資產</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1860" model="account.account.template">
+		    <field name="code">1860</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">存出保證金</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1861" model="account.account.template">
+		    <field name="code">1861</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1860" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">存出保證金</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1880" model="account.account.template">
+		    <field name="code">1880</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">雜項資產</field>
+		    <field name="user_type" ref="user_type_asset_view"/>
+		</record>
+		<record id="chart1881" model="account.account.template">
+		    <field name="code">1881</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">受限制存款</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart1888" model="account.account.template">
+		    <field name="code">1888</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart1880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">雜項資產－其他</field>
+		    <field name="user_type" ref="user_type_asset"/>
+		</record>
+		<record id="chart2000" model="account.account.template">
+		    <field name="code">2000</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="tw_root" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2100" model="account.account.template">
+		    <field name="code">2100</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">流動負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2110" model="account.account.template">
+		    <field name="code">2110</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">短期借款</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2111" model="account.account.template">
+		    <field name="code">2111</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">銀行透支</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2112" model="account.account.template">
+		    <field name="code">2112</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">銀行借款</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2114" model="account.account.template">
+		    <field name="code">2114</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">短期借款－業主</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2115" model="account.account.template">
+		    <field name="code">2115</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">短期借款－員工</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2117" model="account.account.template">
+		    <field name="code">2117</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">短期借款－關係人</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2118" model="account.account.template">
+		    <field name="code">2118</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">短期借款－其他</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2120" model="account.account.template">
+		    <field name="code">2120</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">應付短期票券</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2121" model="account.account.template">
+		    <field name="code">2121</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2120" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">應付商業本票</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2122" model="account.account.template">
+		    <field name="code">2122</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2120" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">銀行承兌匯票</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2128" model="account.account.template">
+		    <field name="code">2128</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2120" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">其他應付短期票券</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2129" model="account.account.template">
+		    <field name="code">2129</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2120" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付短期票券折價</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2130" model="account.account.template">
+		    <field name="code">2130</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">應付票據</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2131" model="account.account.template">
+		    <field name="code">2131</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2130" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">應付票據</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2137" model="account.account.template">
+		    <field name="code">2137</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2130" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">應付票據－關係人</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2138" model="account.account.template">
+		    <field name="code">2138</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2130" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">其他應付票據</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2140" model="account.account.template">
+		    <field name="code">2140</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">應付帳款</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2141" model="account.account.template">
+		    <field name="code">2141</field>
+		    <field name="reconcile" eval="True"/>
+		    <field ref="chart2140" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">應付帳款</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2147" model="account.account.template">
+		    <field name="code">2147</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2140" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">應付帳款－關係人</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2150" model="account.account.template">
+		    <field name="code">2150</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他金融負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2151" model="account.account.template">
+		    <field name="code">2151</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">公平價值變動列入損益之金融負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2152" model="account.account.template">
+		    <field name="code">2152</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">避險之衍生性金融負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2153" model="account.account.template">
+		    <field name="code">2153</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">以成本衡量之金融負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2159" model="account.account.template">
+		    <field name="code">2159</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">金融負債評價調整</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2160" model="account.account.template">
+		    <field name="code">2160</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">應付所得稅</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2161" model="account.account.template">
+		    <field name="code">2161</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2160" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付所得稅</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2170" model="account.account.template">
+		    <field name="code">2170</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">應付費用</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2171" model="account.account.template">
+		    <field name="code">2171</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2170" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付薪工</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2172" model="account.account.template">
+		    <field name="code">2172</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2170" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付租金</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2173" model="account.account.template">
+		    <field name="code">2173</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2170" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付利息</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2174" model="account.account.template">
+		    <field name="code">2174</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2170" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付營業稅</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2175" model="account.account.template">
+		    <field name="code">2175</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2170" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付稅捐－其他</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2178" model="account.account.template">
+		    <field name="code">2178</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2170" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他應付費用</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2180" model="account.account.template">
+		    <field name="code">2180</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他應付款</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2184" model="account.account.template">
+		    <field name="code">2184</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付土地房屋款</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2185" model="account.account.template">
+		    <field name="code">2185</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付設備款</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2187" model="account.account.template">
+		    <field name="code">2187</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他應付款－關係人</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2191" model="account.account.template">
+		    <field name="code">2191</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付股利</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2192" model="account.account.template">
+		    <field name="code">2192</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付紅利</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2193" model="account.account.template">
+		    <field name="code">2193</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付董監事酬勞</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2198" model="account.account.template">
+		    <field name="code">2198</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他應付款－其他</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2250" model="account.account.template">
+		    <field name="code">2250</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">特別股負債－流動</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2251" model="account.account.template">
+		    <field name="code">2251</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">特別股負債－流動</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2260" model="account.account.template">
+		    <field name="code">2260</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">預收款項</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2261" model="account.account.template">
+		    <field name="code">2261</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2260" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預收貨款</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2262" model="account.account.template">
+		    <field name="code">2262</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2260" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預收收入</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2268" model="account.account.template">
+		    <field name="code">2268</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2260" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他預收款</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2270" model="account.account.template">
+		    <field name="code">2270</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">一年內到期長期負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2271" model="account.account.template">
+		    <field name="code">2271</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2270" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">一年內到期公司債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2272" model="account.account.template">
+		    <field name="code">2272</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2270" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">一年內到期長期借款</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2273" model="account.account.template">
+		    <field name="code">2273</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2270" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">一年內到期長期應付票據及款項</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2277" model="account.account.template">
+		    <field name="code">2277</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2270" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">一年內到期長期應付票據及款項－關係人</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2278" model="account.account.template">
+		    <field name="code">2278</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2270" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">一年內到期其他長期負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2280" model="account.account.template">
+		    <field name="code">2280</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他流動負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2281" model="account.account.template">
+		    <field name="code">2281</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">銷項稅額</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2283" model="account.account.template">
+		    <field name="code">2283</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">暫收款</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2284" model="account.account.template">
+		    <field name="code">2284</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">代收款</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2285" model="account.account.template">
+		    <field name="code">2285</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">估計售後服務／保固負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2291" model="account.account.template">
+		    <field name="code">2291</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">遞延所得稅負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2292" model="account.account.template">
+		    <field name="code">2292</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">遞延兌換利益</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2293" model="account.account.template">
+		    <field name="code">2293</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">業主(股東)往來</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2294" model="account.account.template">
+		    <field name="code">2294</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">同業往來</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2298" model="account.account.template">
+		    <field name="code">2298</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他流動負債－其他</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2300" model="account.account.template">
+		    <field name="code">2300</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">長期負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2310" model="account.account.template">
+		    <field name="code">2310</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">應付公司債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2311" model="account.account.template">
+		    <field name="code">2311</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2310" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付公司債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2312" model="account.account.template">
+		    <field name="code">2312</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2310" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應付公司債溢(折)價</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2320" model="account.account.template">
+		    <field name="code">2320</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">長期借款</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2321" model="account.account.template">
+		    <field name="code">2321</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期銀行借款</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2322" model="account.account.template">
+		    <field name="code">2322</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期借款－業主</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2323" model="account.account.template">
+		    <field name="code">2323</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期借款－員工</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2324" model="account.account.template">
+		    <field name="code">2324</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期借款－關係人</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2325" model="account.account.template">
+		    <field name="code">2325</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期借款－其他</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2330" model="account.account.template">
+		    <field name="code">2330</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">長期應付票據及款項</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2331" model="account.account.template">
+		    <field name="code">2331</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2330" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">長期應付票據</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2332" model="account.account.template">
+		    <field name="code">2332</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2330" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">長期應付帳款</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2333" model="account.account.template">
+		    <field name="code">2333</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2330" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">長期應付租賃負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2337" model="account.account.template">
+		    <field name="code">2337</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2330" name="parent_id"/>
+		    <field name="type">payable</field>
+		    <field name="name">長期應付票據及款項－關係人</field>
+		    <field name="user_type" ref="user_type_payable"/>
+		</record>
+		<record id="chart2338" model="account.account.template">
+		    <field name="code">2338</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2330" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他長期應付款項</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2340" model="account.account.template">
+		    <field name="code">2340</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">估計應付土地增值稅</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2341" model="account.account.template">
+		    <field name="code">2341</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2340" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">估計應付土地增值稅</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2350" model="account.account.template">
+		    <field name="code">2350</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">應計退休金負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2351" model="account.account.template">
+		    <field name="code">2351</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">應計退休金負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2360" model="account.account.template">
+		    <field name="code">2360</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他金融負債-非流動</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2361" model="account.account.template">
+		    <field name="code">2361</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2360" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">公平價值變動列入損益之金融負債-非流動</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2362" model="account.account.template">
+		    <field name="code">2362</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2360" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">避險之衍生性金融負債-非流動</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2363" model="account.account.template">
+		    <field name="code">2363</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2360" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">以成本衡量之金融負債-非流動</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2369" model="account.account.template">
+		    <field name="code">2369</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2360" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">金融負債評價調整-非流動</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2370" model="account.account.template">
+		    <field name="code">2370</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">特別股負債－非流動</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2371" model="account.account.template">
+		    <field name="code">2371</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2370" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">特別股負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2380" model="account.account.template">
+		    <field name="code">2380</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他長期負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2381" model="account.account.template">
+		    <field name="code">2381</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2380" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他長期負債—其他</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2800" model="account.account.template">
+		    <field name="code">2800</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2810" model="account.account.template">
+		    <field name="code">2810</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">遞延負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2811" model="account.account.template">
+		    <field name="code">2811</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2810" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">遞延收入</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2814" model="account.account.template">
+		    <field name="code">2814</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2810" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">遞延所得稅負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2818" model="account.account.template">
+		    <field name="code">2818</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2810" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他遞延負債</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2860" model="account.account.template">
+		    <field name="code">2860</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">存入保證金</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2861" model="account.account.template">
+		    <field name="code">2861</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2860" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">存入保證金</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart2880" model="account.account.template">
+		    <field name="code">2880</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">雜項負債</field>
+		    <field name="user_type" ref="user_type_liabilities_view"/>
+		</record>
+		<record id="chart2888" model="account.account.template">
+		    <field name="code">2888</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart2880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">雜項負債－其他</field>
+		    <field name="user_type" ref="user_type_liabilities"/>
+		</record>
+		<record id="chart3000" model="account.account.template">
+		    <field name="code">3000</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="tw_root" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">業主權益</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3100" model="account.account.template">
+		    <field name="code">3100</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">資本</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3110" model="account.account.template">
+		    <field name="code">3110</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">資本(或股本)</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3111" model="account.account.template">
+		    <field name="code">3111</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">普通股股本</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3112" model="account.account.template">
+		    <field name="code">3112</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">特別股股本</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3113" model="account.account.template">
+		    <field name="code">3113</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">預收股本</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3114" model="account.account.template">
+		    <field name="code">3114</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">待分配股票股利</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3115" model="account.account.template">
+		    <field name="code">3115</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">資本</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3200" model="account.account.template">
+		    <field name="code">3200</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">資本公積</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3210" model="account.account.template">
+		    <field name="code">3210</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">股票溢價</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3211" model="account.account.template">
+		    <field name="code">3211</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">普通股股票溢價</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3212" model="account.account.template">
+		    <field name="code">3212</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">特別股股票溢價</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3214" model="account.account.template">
+		    <field name="code">3214</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">庫藏股溢價公積</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3219" model="account.account.template">
+		    <field name="code">3219</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他溢價公積</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3260" model="account.account.template">
+		    <field name="code">3260</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">受贈公積</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3261" model="account.account.template">
+		    <field name="code">3261</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3260" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">受贈公積</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3280" model="account.account.template">
+		    <field name="code">3280</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他資本公積</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3281" model="account.account.template">
+		    <field name="code">3281</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3280" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">權益法長期股權投資資本公積</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3300" model="account.account.template">
+		    <field name="code">3300</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">保留盈餘(或累積虧損) </field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3310" model="account.account.template">
+		    <field name="code">3310</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">法定盈餘公積</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3311" model="account.account.template">
+		    <field name="code">3311</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3310" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">法定盈餘公積</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3320" model="account.account.template">
+		    <field name="code">3320</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">特別盈餘公積</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3321" model="account.account.template">
+		    <field name="code">3321</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">意外損失準備</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3322" model="account.account.template">
+		    <field name="code">3322</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">改良擴充準備</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3323" model="account.account.template">
+		    <field name="code">3323</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">償債準備</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3328" model="account.account.template">
+		    <field name="code">3328</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3320" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他特別盈餘公積</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3350" model="account.account.template">
+		    <field name="code">3350</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">未分配盈餘(或累積虧損)</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3351" model="account.account.template">
+		    <field name="code">3351</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累積盈虧</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3352" model="account.account.template">
+		    <field name="code">3352</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">前期損益調整</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3353" model="account.account.template">
+		    <field name="code">3353</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">本期損益</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3400" model="account.account.template">
+		    <field name="code">3400</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">權益調整</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3410" model="account.account.template">
+		    <field name="code">3410</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">金融商品未實現損益</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3411" model="account.account.template">
+		    <field name="code">3411</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3410" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">金融商品未實現損益</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3420" model="account.account.template">
+		    <field name="code">3420</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">累積換算調整數</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3421" model="account.account.template">
+		    <field name="code">3421</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3420" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">累積換算調整數</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3430" model="account.account.template">
+		    <field name="code">3430</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">未認列為退休金成本之淨損失</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3431" model="account.account.template">
+		    <field name="code">3431</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3430" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">未認列為退休金成本之淨損失</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3440" model="account.account.template">
+		    <field name="code">3440</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">未實現重估增值</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3441" model="account.account.template">
+		    <field name="code">3441</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3440" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">未實現重估增值</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3450" model="account.account.template">
+		    <field name="code">3450</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">庫藏股</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3451" model="account.account.template">
+		    <field name="code">3451</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3450" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">庫藏股</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart3600" model="account.account.template">
+		    <field name="code">3600</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">少數股權</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3610" model="account.account.template">
+		    <field name="code">3610</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3600" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">少數股權</field>
+		    <field name="user_type" ref="user_type_owners_equity_view"/>
+		</record>
+		<record id="chart3611" model="account.account.template">
+		    <field name="code">3611</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart3610" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">少數股權</field>
+		    <field name="user_type" ref="user_type_owners_equity"/>
+		</record>
+		<record id="chart4000" model="account.account.template">
+		    <field name="code">4000</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="tw_root" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">營業收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4100" model="account.account.template">
+		    <field name="code">4100</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">銷貨收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4110" model="account.account.template">
+		    <field name="code">4110</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">銷貨收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4111" model="account.account.template">
+		    <field name="code">4111</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">銷貨收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue"/>
+		</record>
+		<record id="chart4112" model="account.account.template">
+		    <field name="code">4112</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">分期付款銷貨收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue"/>
+		</record>
+		<record id="chart4170" model="account.account.template">
+		    <field name="code">4170</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">銷貨退回</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4171" model="account.account.template">
+		    <field name="code">4171</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4170" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">銷貨退回</field>
+		    <field name="user_type" ref="user_type_operating_revenue"/>
+		</record>
+		<record id="chart4190" model="account.account.template">
+		    <field name="code">4190</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">銷貨折讓</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4191" model="account.account.template">
+		    <field name="code">4191</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4190" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">銷貨折讓</field>
+		    <field name="user_type" ref="user_type_operating_revenue"/>
+		</record>
+		<record id="chart4600" model="account.account.template">
+		    <field name="code">4600</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">勞務收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4610" model="account.account.template">
+		    <field name="code">4610</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4600" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">勞務收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4611" model="account.account.template">
+		    <field name="code">4611</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4610" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">勞務收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue"/>
+		</record>
+		<record id="chart4700" model="account.account.template">
+		    <field name="code">4700</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">業務收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4710" model="account.account.template">
+		    <field name="code">4710</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4700" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">業務收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4711" model="account.account.template">
+		    <field name="code">4711</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4710" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">業務收入</field>
+		    <field name="user_type" ref="user_type_operating_revenue"/>
+		</record>
+		<record id="chart4800" model="account.account.template">
+		    <field name="code">4800</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他營業收入－其他</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4880" model="account.account.template">
+		    <field name="code">4880</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他營業收入－其他</field>
+		    <field name="user_type" ref="user_type_operating_revenue_view"/>
+		</record>
+		<record id="chart4888" model="account.account.template">
+		    <field name="code">4888</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart4880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他營業收入－其他</field>
+		    <field name="user_type" ref="user_type_operating_revenue"/>
+		</record>
+		<record id="chart5000" model="account.account.template">
+		    <field name="code">5000</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="tw_root" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">營業成本</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5100" model="account.account.template">
+		    <field name="code">5100</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">銷貨成本</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5110" model="account.account.template">
+		    <field name="code">5110</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">銷貨成本</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5111" model="account.account.template">
+		    <field name="code">5111</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">銷貨成本</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5112" model="account.account.template">
+		    <field name="code">5112</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">分期付款銷貨成本</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5120" model="account.account.template">
+		    <field name="code">5120</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">進貨</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5121" model="account.account.template">
+		    <field name="code">5121</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5120" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">進貨</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5122" model="account.account.template">
+		    <field name="code">5122</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5120" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">進貨費用</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5123" model="account.account.template">
+		    <field name="code">5123</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5120" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">進貨退出</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5124" model="account.account.template">
+		    <field name="code">5124</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5120" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">進貨折讓</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5130" model="account.account.template">
+		    <field name="code">5130</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">進料</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5131" model="account.account.template">
+		    <field name="code">5131</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5130" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">進料</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5132" model="account.account.template">
+		    <field name="code">5132</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5130" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">進料費用</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5133" model="account.account.template">
+		    <field name="code">5133</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5130" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">進料退出</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5134" model="account.account.template">
+		    <field name="code">5134</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5130" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">進料折讓</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5140" model="account.account.template">
+		    <field name="code">5140</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">直接人工</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5141" model="account.account.template">
+		    <field name="code">5141</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5140" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">直接人工</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5150" model="account.account.template">
+		    <field name="code">5150</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">製造費用</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5151" model="account.account.template">
+		    <field name="code">5151</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">間接人工</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5152" model="account.account.template">
+		    <field name="code">5152</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">租金支出</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5153" model="account.account.template">
+		    <field name="code">5153</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">文具用品</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5154" model="account.account.template">
+		    <field name="code">5154</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">旅費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5155" model="account.account.template">
+		    <field name="code">5155</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">運費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5156" model="account.account.template">
+		    <field name="code">5156</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">郵電費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5157" model="account.account.template">
+		    <field name="code">5157</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">修繕費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5158" model="account.account.template">
+		    <field name="code">5158</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">包裝費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5161" model="account.account.template">
+		    <field name="code">5161</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">水電瓦斯費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5162" model="account.account.template">
+		    <field name="code">5162</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">保險費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5163" model="account.account.template">
+		    <field name="code">5163</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">加工費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5166" model="account.account.template">
+		    <field name="code">5166</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">稅捐</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5168" model="account.account.template">
+		    <field name="code">5168</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">折舊</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5169" model="account.account.template">
+		    <field name="code">5169</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">各項耗竭及攤提</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5172" model="account.account.template">
+		    <field name="code">5172</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">伙食費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5173" model="account.account.template">
+		    <field name="code">5173</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">職工福利</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5176" model="account.account.template">
+		    <field name="code">5176</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">訓練費</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5177" model="account.account.template">
+		    <field name="code">5177</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">間接材料</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5188" model="account.account.template">
+		    <field name="code">5188</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他製造費用</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5600" model="account.account.template">
+		    <field name="code">5600</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">勞務成本</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5610" model="account.account.template">
+		    <field name="code">5610</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5600" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">勞務成本</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5611" model="account.account.template">
+		    <field name="code">5611</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5610" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">勞務成本</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5700" model="account.account.template">
+		    <field name="code">5700</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">業務成本</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5710" model="account.account.template">
+		    <field name="code">5710</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5700" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">業務成本</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5711" model="account.account.template">
+		    <field name="code">5711</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5710" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">業務成本</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart5800" model="account.account.template">
+		    <field name="code">5800</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他營業成本</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5880" model="account.account.template">
+		    <field name="code">5880</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5800" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他營業成本—其他</field>
+		    <field name="user_type" ref="user_type_operating_costs_view"/>
+		</record>
+		<record id="chart5888" model="account.account.template">
+		    <field name="code">5888</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart5880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他營業成本—其他</field>
+		    <field name="user_type" ref="user_type_operating_costs"/>
+		</record>
+		<record id="chart6000" model="account.account.template">
+		    <field name="code">6000</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="tw_root" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">營業費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses_view"/>
+		</record>
+		<record id="chart6100" model="account.account.template">
+		    <field name="code">6100</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">推銷費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses_view"/>
+		</record>
+		<record id="chart6150" model="account.account.template">
+		    <field name="code">6150</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">推銷費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses_view"/>
+		</record>
+		<record id="chart6151" model="account.account.template">
+		    <field name="code">6151</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">薪資支出</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6152" model="account.account.template">
+		    <field name="code">6152</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">租金支出</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6153" model="account.account.template">
+		    <field name="code">6153</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">文具用品</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6154" model="account.account.template">
+		    <field name="code">6154</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">旅費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6155" model="account.account.template">
+		    <field name="code">6155</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">運費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6156" model="account.account.template">
+		    <field name="code">6156</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">郵電費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6157" model="account.account.template">
+		    <field name="code">6157</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">修繕費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6159" model="account.account.template">
+		    <field name="code">6159</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">廣告費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6161" model="account.account.template">
+		    <field name="code">6161</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">水電瓦斯費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6162" model="account.account.template">
+		    <field name="code">6162</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">保險費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6164" model="account.account.template">
+		    <field name="code">6164</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">交際費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6165" model="account.account.template">
+		    <field name="code">6165</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">捐贈</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6166" model="account.account.template">
+		    <field name="code">6166</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">稅捐</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6167" model="account.account.template">
+		    <field name="code">6167</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">呆帳損失</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6168" model="account.account.template">
+		    <field name="code">6168</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">折舊</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6169" model="account.account.template">
+		    <field name="code">6169</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">各項耗竭及攤提</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6172" model="account.account.template">
+		    <field name="code">6172</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">伙食費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6173" model="account.account.template">
+		    <field name="code">6173</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">職工福利</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6175" model="account.account.template">
+		    <field name="code">6175</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">佣金支出</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6176" model="account.account.template">
+		    <field name="code">6176</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">訓練費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6188" model="account.account.template">
+		    <field name="code">6188</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他推銷費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6200" model="account.account.template">
+		    <field name="code">6200</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">管理及總務費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses_view"/>
+		</record>
+		<record id="chart6250" model="account.account.template">
+		    <field name="code">6250</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">管理及總務費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses_view"/>
+		</record>
+		<record id="chart6251" model="account.account.template">
+		    <field name="code">6251</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">薪資支出</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6252" model="account.account.template">
+		    <field name="code">6252</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">租金支出</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6253" model="account.account.template">
+		    <field name="code">6253</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">文具用品</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6254" model="account.account.template">
+		    <field name="code">6254</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">旅費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6255" model="account.account.template">
+		    <field name="code">6255</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">運費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6256" model="account.account.template">
+		    <field name="code">6256</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">郵電費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6257" model="account.account.template">
+		    <field name="code">6257</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">修繕費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6259" model="account.account.template">
+		    <field name="code">6259</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">廣告費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6261" model="account.account.template">
+		    <field name="code">6261</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">水電瓦斯費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6262" model="account.account.template">
+		    <field name="code">6262</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">保險費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6264" model="account.account.template">
+		    <field name="code">6264</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">交際費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6265" model="account.account.template">
+		    <field name="code">6265</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">捐贈</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6266" model="account.account.template">
+		    <field name="code">6266</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">稅捐</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6267" model="account.account.template">
+		    <field name="code">6267</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">呆帳損失</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6268" model="account.account.template">
+		    <field name="code">6268</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">折舊</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6269" model="account.account.template">
+		    <field name="code">6269</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">各項耗竭及攤提</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6271" model="account.account.template">
+		    <field name="code">6271</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">外銷損失</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6272" model="account.account.template">
+		    <field name="code">6272</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">伙食費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6273" model="account.account.template">
+		    <field name="code">6273</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">職工福利</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6274" model="account.account.template">
+		    <field name="code">6274</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">研究發展費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6275" model="account.account.template">
+		    <field name="code">6275</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">佣金支出</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6276" model="account.account.template">
+		    <field name="code">6276</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">訓練費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6278" model="account.account.template">
+		    <field name="code">6278</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">勞務費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6288" model="account.account.template">
+		    <field name="code">6288</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6250" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他管理及總務費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6300" model="account.account.template">
+		    <field name="code">6300</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">研究及發展費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses_view"/>
+		</record>
+		<record id="chart6350" model="account.account.template">
+		    <field name="code">6350</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">研究及發展費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses_view"/>
+		</record>
+		<record id="chart6351" model="account.account.template">
+		    <field name="code">6351</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">薪資支出</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6352" model="account.account.template">
+		    <field name="code">6352</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">租金支出</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6353" model="account.account.template">
+		    <field name="code">6353</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">文具用品</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6354" model="account.account.template">
+		    <field name="code">6354</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">旅費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6355" model="account.account.template">
+		    <field name="code">6355</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">運費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6356" model="account.account.template">
+		    <field name="code">6356</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">郵電費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6357" model="account.account.template">
+		    <field name="code">6357</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">修繕費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6361" model="account.account.template">
+		    <field name="code">6361</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">水電瓦斯費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6362" model="account.account.template">
+		    <field name="code">6362</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">保險費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6364" model="account.account.template">
+		    <field name="code">6364</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">交際費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6366" model="account.account.template">
+		    <field name="code">6366</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">稅捐</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6368" model="account.account.template">
+		    <field name="code">6368</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">折舊</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6369" model="account.account.template">
+		    <field name="code">6369</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">各項耗竭及攤提</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6372" model="account.account.template">
+		    <field name="code">6372</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">伙食費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6373" model="account.account.template">
+		    <field name="code">6373</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">職工福利</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6376" model="account.account.template">
+		    <field name="code">6376</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">訓練費</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart6378" model="account.account.template">
+		    <field name="code">6378</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart6350" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他研究發展費用</field>
+		    <field name="user_type" ref="user_type_operating_expenses"/>
+		</record>
+		<record id="chart7000" model="account.account.template">
+		    <field name="code">7000</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="tw_root" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">營業外收益及費損</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7100" model="account.account.template">
+		    <field name="code">7100</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">營業外收益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7110" model="account.account.template">
+		    <field name="code">7110</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">利息收入</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7111" model="account.account.template">
+		    <field name="code">7111</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">利息收入</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7140" model="account.account.template">
+		    <field name="code">7140</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">投資收益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7141" model="account.account.template">
+		    <field name="code">7141</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7140" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">金融資產評價利益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7142" model="account.account.template">
+		    <field name="code">7142</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7140" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">金融負債評價利益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7143" model="account.account.template">
+		    <field name="code">7143</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7140" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">採權益法認列之投資收益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7150" model="account.account.template">
+		    <field name="code">7150</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">兌換利益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7151" model="account.account.template">
+		    <field name="code">7151</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7150" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">兌換利益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7160" model="account.account.template">
+		    <field name="code">7160</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">處分投資收益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7161" model="account.account.template">
+		    <field name="code">7161</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7160" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">處分投資收益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7170" model="account.account.template">
+		    <field name="code">7170</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">處分資產溢價收入</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7171" model="account.account.template">
+		    <field name="code">7171</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7170" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">處分資產溢價收入</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7180" model="account.account.template">
+		    <field name="code">7180</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">減損迴轉利益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7181" model="account.account.template">
+		    <field name="code">7181</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7180" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">減損迴轉利益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7480" model="account.account.template">
+		    <field name="code">7480</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他營業外收益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7481" model="account.account.template">
+		    <field name="code">7481</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7480" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">捐贈收入</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7482" model="account.account.template">
+		    <field name="code">7482</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7480" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">租金收入</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7483" model="account.account.template">
+		    <field name="code">7483</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7480" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">佣金收入</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7484" model="account.account.template">
+		    <field name="code">7484</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7480" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">出售下腳及廢料收入</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7485" model="account.account.template">
+		    <field name="code">7485</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7480" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">存貨盤盈</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7486" model="account.account.template">
+		    <field name="code">7486</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7480" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">存貨跌價回升利益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7487" model="account.account.template">
+		    <field name="code">7487</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7480" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">壞帳轉回利益</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7488" model="account.account.template">
+		    <field name="code">7488</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7480" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他營業外收益－其他</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7500" model="account.account.template">
+		    <field name="code">7500</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">營業外費損</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7510" model="account.account.template">
+		    <field name="code">7510</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7500" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">利息費用</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7511" model="account.account.template">
+		    <field name="code">7511</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7510" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">利息費用</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7520" model="account.account.template">
+		    <field name="code">7520</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7500" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">負債性特別股股息</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7521" model="account.account.template">
+		    <field name="code">7521</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7520" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">負債性特別股股息</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7530" model="account.account.template">
+		    <field name="code">7530</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7500" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">投資損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7531" model="account.account.template">
+		    <field name="code">7531</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7530" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">金融資產評價損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7532" model="account.account.template">
+		    <field name="code">7532</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7530" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">金融負債評價損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7533" model="account.account.template">
+		    <field name="code">7533</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7530" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">採權益法認列之投資損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7540" model="account.account.template">
+		    <field name="code">7540</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7500" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">兌換損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7541" model="account.account.template">
+		    <field name="code">7541</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7540" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">兌換損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7550" model="account.account.template">
+		    <field name="code">7550</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7500" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">處分資產損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue_view"/>
+		</record>
+		<record id="chart7551" model="account.account.template">
+		    <field name="code">7551</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7550" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">處分資產損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7680" model="account.account.template">
+		    <field name="code">7680</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7500" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">減損損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7681" model="account.account.template">
+		    <field name="code">7681</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7680" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">減損損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7880" model="account.account.template">
+		    <field name="code">7880</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7500" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">其他營業外費損</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7881" model="account.account.template">
+		    <field name="code">7881</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">停工損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7882" model="account.account.template">
+		    <field name="code">7882</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">災害損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7885" model="account.account.template">
+		    <field name="code">7885</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">存貨盤損</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7886" model="account.account.template">
+		    <field name="code">7886</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">存貨跌價及呆滯損失</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7888" model="account.account.template">
+		    <field name="code">7888</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7880" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">其他營業外費損－其他</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7900" model="account.account.template">
+		    <field name="code">7900</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">繼續營業部門稅前純益（或純損）</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7910" model="account.account.template">
+		    <field name="code">7910</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7900" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">繼續營業部門稅前純益（或純損）</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart7911" model="account.account.template">
+		    <field name="code">7911</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart7910" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">繼續營業部門稅前純益（或純損）</field>
+		    <field name="user_type" ref="user_type_non_operating_revenue"/>
+		</record>
+		<record id="chart8000" model="account.account.template">
+		    <field name="code">8000</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="tw_root" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">所得稅費用(或利益) </field>
+		    <field name="user_type" ref="user_type_income_tax_view"/>
+		</record>
+		<record id="chart8100" model="account.account.template">
+		    <field name="code">8100</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart8000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">所得稅費用(或利益)</field>
+		    <field name="user_type" ref="user_type_income_tax_view"/>
+		</record>
+		<record id="chart8110" model="account.account.template">
+		    <field name="code">8110</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart8100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">所得稅費用(或利益)</field>
+		    <field name="user_type" ref="user_type_income_tax_view"/>
+		</record>
+		<record id="chart8111" model="account.account.template">
+		    <field name="code">8111</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart8110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">所得稅費用(或利益)</field>
+		    <field name="user_type" ref="user_type_income_tax"/>
+		</record>
+		<record id="chart8200" model="account.account.template">
+		    <field name="code">8200</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart8000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">繼續營業部門稅後純益（或純損）</field>
+		    <field name="user_type" ref="user_type_income_tax_view"/>
+		</record>
+		<record id="chart8210" model="account.account.template">
+		    <field name="code">8210</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart8200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">繼續營業部門稅後純益（或純損）</field>
+		    <field name="user_type" ref="user_type_income_tax_view"/>
+		</record>
+		<record id="chart8211" model="account.account.template">
+		    <field name="code">8211</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart8210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">繼續營業部門稅後純益（或純損）</field>
+		    <field name="user_type" ref="user_type_income_tax"/>
+		</record>
+		<record id="chart9000" model="account.account.template">
+		    <field name="code">9000</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="tw_root" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">非經常營業損益</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss_view"/>
+		</record>
+		<record id="chart9100" model="account.account.template">
+		    <field name="code">9100</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">停業部門損益</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss_view"/>
+		</record>
+		<record id="chart9110" model="account.account.template">
+		    <field name="code">9110</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9100" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">停業部門營業損益</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss_view"/>
+		</record>
+		<record id="chart9111" model="account.account.template">
+		    <field name="code">9111</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">停業部門營業損益</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss"/>
+		</record>
+		<record id="chart9112" model="account.account.template">
+		    <field name="code">9112</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9110" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">停業部門處分損益及依淨公平價值衡量損益</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss"/>
+		</record>
+		<record id="chart9200" model="account.account.template">
+		    <field name="code">9200</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">非常損益</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss_view"/>
+		</record>
+		<record id="chart9210" model="account.account.template">
+		    <field name="code">9210</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9200" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">非常損益</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss_view"/>
+		</record>
+		<record id="chart9211" model="account.account.template">
+		    <field name="code">9211</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9210" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">非常損益</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss"/>
+		</record>
+		<record id="chart9300" model="account.account.template">
+		    <field name="code">9300</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">會計原則變動累積影響數</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss_view"/>
+		</record>
+		<record id="chart9310" model="account.account.template">
+		    <field name="code">9310</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9300" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">會計原則變動累積影響數</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss_view"/>
+		</record>
+		<record id="chart9311" model="account.account.template">
+		    <field name="code">9311</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9310" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">會計原則變動累積影響數</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss"/>
+		</record>
+		<record id="chart9400" model="account.account.template">
+		    <field name="code">9400</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9000" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">少數股權淨利</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss_view"/>
+		</record>
+		<record id="chart9410" model="account.account.template">
+		    <field name="code">9410</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9400" name="parent_id"/>
+		    <field name="type">view</field>
+		    <field name="name">少數股權淨利</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss_view"/>
+		</record>
+		<record id="chart9411" model="account.account.template">
+		    <field name="code">9411</field>
+		    <field name="reconcile" eval="False"/>
+		    <field ref="chart9410" name="parent_id"/>
+		    <field name="type">other</field>
+		    <field name="name">少數股權淨利</field>
+		    <field name="user_type" ref="user_type_nonrecurring_gain_loss"/>
+		</record>
+
+        <!-- Chart template -->
+        <record id="l10n_chart_taiwan" model="account.chart.template">
+        	<field name="name">台灣會計科目表</field>
+            <field name="account_root_id" ref="tw_root"/>
+            <field name="tax_code_root_id" ref="tw_vat_chart_root"/>
+            <field name="bank_account_view_id" ref="chart1113"/>
+            <field name="property_account_receivable" ref="chart1141"/>
+            <field name="property_account_payable" ref="chart2141"/>
+            <field name="property_account_expense_categ" ref="chart5121"/>
+            <field name="property_account_income_categ" ref="chart4111"/>
+            <field name="code_digits" eval="4"/>
+        </record>
+        
+        <record id="l10n_chart_taiwan_value" model="ir.values">
+            <field name="name">台灣會計科目表</field>
+            <field name="model">account.chart.template</field>
+            <field name="key">default</field>
+            <field name="res_id" ref="l10n_chart_taiwan"/>
+            <field name="value" ref="base.TWD"/>
+        </record>
+
+        <!-- 營業稅 -->
+        <record id="vat_sale_free" model="account.tax.template">
+            <field name="chart_template_id" ref="l10n_chart_taiwan"/>
+            <field name="name">免銷項稅</field>
+            <field name="amount" eval="0" />
+            <field name="type">percent</field>
+            <field name="account_collected_id" ref="chart2281"/>
+            <field name="account_paid_id" ref="chart2281"/>
+            <field name="type_tax_use">sale</field>
+        </record>
+        <record id="vat_purchase_free" model="account.tax.template">
+            <field name="chart_template_id" ref="l10n_chart_taiwan"/>
+            <field name="name">免進項稅</field>
+            <field name="amount" eval="0" />
+            <field name="type">percent</field>
+            <field name="account_collected_id" ref="chart1281"/>
+            <field name="account_paid_id" ref="chart1281"/>
+            <field name="type_tax_use">purchase</field>
+        </record>
+        
+        <record id="vat_sale" model="account.tax.template">
+            <field name="chart_template_id" ref="l10n_chart_taiwan"/>
+            <field name="name">銷項稅</field>
+            <field name="amount" eval="0.05" />
+            <field name="type">percent</field>
+            <field name="account_collected_id" ref="chart2281"/>
+            <field name="account_paid_id" ref="chart2281"/>
+            <field name="type_tax_use">sale</field>
+        </record>
+        <record id="vat_purchase" model="account.tax.template">
+            <field name="chart_template_id" ref="l10n_chart_taiwan"/>
+            <field name="name">進項稅</field>
+            <field name="amount" eval="0.05" />
+            <field name="type">percent</field>
+            <field name="account_collected_id" ref="chart1281"/>
+            <field name="account_paid_id" ref="chart1281"/>
+            <field name="type_tax_use">purchase</field>
+        </record>
+        
+        <record id="vat_sale_include" model="account.tax.template">
+            <field name="chart_template_id" ref="l10n_chart_taiwan"/>
+            <field name="name">內含銷項稅</field>
+            <field name="amount" eval="0.05" />
+            <field name="type">percent</field>
+            <field name="account_collected_id" ref="chart2281"/>
+            <field name="account_paid_id" ref="chart2281"/>
+            <field name="type_tax_use">sale</field>
+            <field name="price_include">True</field>
+        </record>
+        <record id="vat_purchase_include" model="account.tax.template">
+            <field name="chart_template_id" ref="l10n_chart_taiwan"/>
+            <field name="name">內含進項稅</field>
+            <field name="amount" eval="0.05" />
+            <field name="type">percent</field>
+            <field name="account_collected_id" ref="chart1281"/>
+            <field name="account_paid_id" ref="chart1281"/>
+            <field name="type_tax_use">purchase</field>
+            <field name="price_include">True</field>
+        </record>
+
+    </data>
+</openerp>

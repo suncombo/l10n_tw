@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<!--
+
+    Copyright (C) 2015-now Mick Tseng
+
+增值稅
+-->
+    <data noupdate="True">
+        <!-- Tax Code Configuration -->
+        <record id="tw_vat_chart_root" model="account.tax.code.template">
+            <field name="name">台灣稅務表</field>
+            <field name="parent_id" eval="False"/>
+        </record>
+    </data>
+</openerp>

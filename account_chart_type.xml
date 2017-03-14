@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<!--
+
+    Copyright (C) 2015-now Mick Tseng
+
+    科目類型
+我們借用這個對象生成資產負債表和損益表
+-->
+    <data noupdate="True">
+        <record id="user_type_all" model="account.account.type">
+		    <field name="name">根科目</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		</record>
+		<record id="user_type_asset" model="account.account.type">
+		    <field name="name">資產</field>
+		    <field name="code">asset</field>
+		    <field name="close_method">balance</field>
+		    <field name="report_type">asset</field>
+		</record>
+		<record id="user_type_asset_view" model="account.account.type">
+		    <field name="name">資產_視圖</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">asset</field>
+		</record>
+		<record id="user_type_receivable" model="account.account.type">
+		    <field name="name">應收</field>
+		    <field name="code">receivable</field>
+		    <field name="close_method">unreconciled</field>
+		    <field name="report_type">asset</field>
+		</record>
+		<record id="user_type_liabilities" model="account.account.type">
+		    <field name="name">負債</field>
+		    <field name="code">liabilities</field>
+		    <field name="close_method">balance</field>
+		    <field name="report_type">liability</field>
+		</record>
+		<record id="user_type_liabilities_view" model="account.account.type">
+		    <field name="name">負債_視圖</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">liability</field>
+		</record>
+		<record id="user_type_payable" model="account.account.type">
+		    <field name="name">應付</field>
+		    <field name="code">payable</field>
+		    <field name="close_method">unreconciled</field>
+		    <field name="report_type">liability</field>
+		</record>
+		<record id="user_type_owners_equity" model="account.account.type">
+		    <field name="name">業主權益</field>
+		    <field name="code">owners_equity</field>
+		    <field name="close_method">balance</field>
+		    <field name="report_type">liability</field>
+		</record>
+		<record id="user_type_owners_equity_view" model="account.account.type">
+		    <field name="name">業主權益_視圖</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">liability</field>
+		</record>
+		<record id="user_type_operating_revenue" model="account.account.type">
+		    <field name="name">營業收入</field>
+		    <field name="code">operating_revenue</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">income</field>
+		</record>
+		<record id="user_type_operating_revenue_view" model="account.account.type">
+		    <field name="name">營業收入_視圖</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">income</field>
+		</record>
+		<record id="user_type_operating_costs" model="account.account.type">
+		    <field name="name">營業成本</field>
+		    <field name="code">operating_costs</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">expense</field>
+		</record>
+		<record id="user_type_operating_costs_view" model="account.account.type">
+		    <field name="name">營業成本_視圖</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">expense</field>
+		</record>
+		<record id="user_type_operating_expenses" model="account.account.type">
+		    <field name="name">營業費用</field>
+		    <field name="code">operating_expenses</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">expense</field>
+		</record>
+		<record id="user_type_operating_expenses_view" model="account.account.type">
+		    <field name="name">營業費用_視圖</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">expense</field>
+		</record>
+		<record id="user_type_non_operating_revenue" model="account.account.type">
+		    <field name="name">營業外收益</field>
+		    <field name="code">non_operating_revenue</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">income</field>
+		</record>
+		<record id="user_type_non_operating_revenue_view" model="account.account.type">
+		    <field name="name">營業外收益_視圖</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">income</field>
+		</record>
+		<record id="user_type_income_tax" model="account.account.type">
+		    <field name="name">所得稅</field>
+		    <field name="code">income_tax</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">expense</field>
+		</record>
+		<record id="user_type_income_tax_view" model="account.account.type">
+		    <field name="name">所得稅_視圖</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">expense</field>
+		</record>
+		<record id="user_type_nonrecurring_gain_loss" model="account.account.type">
+		    <field name="name">非經常營業損益</field>
+		    <field name="code">nonrecurring_gain_loss</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">income</field>
+		</record>
+		<record id="user_type_nonrecurring_gain_loss_view" model="account.account.type">
+		    <field name="name">非經常營業損益_視圖</field>
+		    <field name="code">view</field>
+		    <field name="close_method">none</field>
+		    <field name="report_type">income</field>
+		</record>
+		
+    </data>
+</openerp>
