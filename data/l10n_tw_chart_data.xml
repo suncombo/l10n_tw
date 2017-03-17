@@ -2796,6 +2796,19 @@
             <field name="chart_template_id" ref="l10n_tw_chart_template"/>
         </record>
 
+        <record id="l10n_tw_chart_template" model="account.chart.template">
+            <field name="property_account_receivable_id" ref="chart_tw_1141"/>
+            <field name="property_account_payable_id" ref="chart_tw_2141"/>
+            <field name="property_account_expense_categ_id" ref="chart_tw_5121"/>
+            <field name="property_account_income_categ_id" ref="chart_tw_4111"/>
+            <field name="income_currency_exchange_account_id" ref="chart_tw_7151"/>
+            <field name="expense_currency_exchange_account_id" ref="chart_tw_7541"/>
+            <field name="property_stock_account_input_categ_id" ref="chart_tw_5121"/>
+            <field name="property_stock_account_output_categ_id" ref="chart_tw_5111"/>
+            <field name="property_stock_valuation_account_id" ref="chart_tw_1211"/>
+            <field name="use_anglo_saxon" eval="True"/>
+        </record>
+
         <!-- Tax template for sale and purchase -->
         <record id="l10n_tw_sale_tax_template" model="account.tax.template">
             <field name="chart_template_id" ref="l10n_tw_chart_template"/>
